@@ -5,28 +5,28 @@ import {
   SEARCH_LIST_START,
   SEARCH_LIST_SUCCESS,
   SEARCH_LIST_FAILED,
-} from './actions';
+} from './actionTypes';
 
 export const requestListStart = () => ({
-  type: 'REQUEST_LIST_START',
+  type: REQUEST_LIST_START,
 });
 export const requestListSuccess = data => ({
-  type: 'REQUEST_LIST_SUCCESS',
+  type: REQUEST_LIST_SUCCESS,
   payload: data,
 });
 
 export const requestListFailed = () => ({
-  type: 'REQUEST_LIST_FAILED',
+  type: REQUEST_LIST_FAILED,
 });
 
 export const searchListStart = () => ({
-  type: 'SEARCH_LIST_START',
+  type: SEARCH_LIST_START,
 });
 
 export const searchListSuccess = () => ({
-  type: 'SEARCH_LIST_SUCCESS',
+  type: SEARCH_LIST_SUCCESS,
 });
 
 export const searchListFailed = () => ({
-  type: 'SEARCH_LIST_FAILED',
+  type: SEARCH_LIST_FAILED,
 });

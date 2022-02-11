@@ -7,21 +7,23 @@ import {
   cancel,
   all,
 } from 'redux-saga/effects';
-import {requestListStart, requestListSuccess} from './actions';
+import {requestListSuccess} from './actions';
+import {REQUEST_LIST_START} from './actionTypes';
 import PixelList from 'src/config/api/service/pixelList';
 
 export function* getPixelList() {
-  yield put(requestListStart());
   try {
     const reponse = yield call(PixelList.getList);
-
-    yield put(requestListSuccess(response));
+    yield put(requestListSuccess(reponse?.hits));
   } catch (errorReponse) {
     return [];
   }
 }
 
-function* pixelListWatcher(): Generator<any, any, any> {
-  yield takeLatest('REQUEST_LIST_SUCCESS', getPixelList);
+export function* pixelListWatcher(): Generator<any, any, any> {
+  yield takeLatest(REQUEST_LIST_START, getPixelList);
 }
-export default pixelListWatcher;
+
+export function* pixelLisSagas() {
+  yield all([call(pixelListWatcher)]);
+}

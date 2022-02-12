@@ -25,7 +25,7 @@ const PixelList = ({navigation, item, handleTags}) => {
         <Icon name="thumbs-up" size={20} color={'grey'} />
         <StyledText>{item.likes} </StyledText>
         <Icon name="eye" size={20} color={'grey'} />
-        <StyledText>{item.likes} </StyledText>
+        <StyledText>{item.views} </StyledText>
       </IconContainer>
 
       <StyledText>tags </StyledText>

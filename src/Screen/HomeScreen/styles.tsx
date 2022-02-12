@@ -18,28 +18,3 @@ export const StyledTextContainer = styled.View`
   align-items: center;
   padding: 20px;
 `;
-export const ContainerImg = styled.View`
-  padding: 10px;
-`;
-
-export const ImageStyles = styled.Image`
-  flex: 1;
-  width: 100%;
-  height: 150;
-  padding: 20px 20px 20px 20px;
-`;
-
-export const TagContainerStyles = styled.View`
-  flexwrap: wrap;
-  flex-direction: row;
-  padding: 10px;
-`;
-export const TagTextStyles = styled.Text`
-  border: 2px;
-  border-radius:10px
-  padding: 10px;
-`;
-
-export const ButtonStyled = styled.TouchableOpacity`
-  flex: 1;
-`;

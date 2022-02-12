@@ -1,6 +1,6 @@
 import {all, call} from 'redux-saga/effects';
-import {pixelLisSagas} from './pixeImg/sagas';
+import {pixelListWatcher} from './pixeImg/sagas';
 
 export default function* rootSaga(): Generator<any, void, any> {
-  yield all([call(pixelLisSagas)]);
+  yield all([call(pixelListWatcher)]);
 }

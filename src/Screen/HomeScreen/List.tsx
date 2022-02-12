@@ -1,51 +1,38 @@
 import React from 'react';
-import {FlatList} from 'react-native';
-import {
-  StyledText,
-  ContainerImg,
-  ImageStyles,
-  TagTextStyles,
-  TagContainerStyles,
-  ButtonStyled,
-} from './styles';
+import {FlatList, ActivityIndicator} from 'react-native';
 import usePixelList from './hooks';
+import {TagsScreen} from 'src/component/Tags';
+import {PixelList} from 'src/component/PixelList';
 
-const Lists = () => {
-  const {data} = usePixelList();
+const Lists = ({navigation}) => {
+  const {data, loading, handleFetchData} = usePixelList(navigation);
   const handleTags = item => {
-    return (
-      <ButtonStyled style={{flex: 1}}>
-        <TagContainerStyles>
-          <TagTextStyles>{item}</TagTextStyles>
-        </TagContainerStyles>
-      </ButtonStyled>
-    );
+    return <TagsScreen item={item} navigation={navigation} />;
   };
   const renderItem = ({item}) => {
-    const tagItem = item.tags.split(',');
     return (
-      <ContainerImg>
-        <ButtonStyled
-          onPress={() =>
-            navigation.navigate('Details', {
-              itemImg: item.webformatURL,
-              tags: item.tags,
-              author: item.user,
-            })
-          }>
-          <ImageStyles source={{uri: item.previewURL}} />
-        </ButtonStyled>
-        <StyledText>tags </StyledText>
-        {tagItem.map(item => handleTags(item))}
-      </ContainerImg>
+      <>
+        <PixelList
+          navigation={navigation}
+          item={item}
+          handleTags={handleTags}
+        />
+      </>
     );
   };
+  if (loading) {
+    return <ActivityIndicator color="#0000ff" />;
+  }
+
   return (
     <FlatList
       style={{flex: 1}}
       data={data}
+      extraData={data}
       renderItem={renderItem}
       keyExtractor={item => item.id}
+      onRefresh={handleFetchData}
+      refreshing={loading}
     />
   );
 };

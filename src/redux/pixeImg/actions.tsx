@@ -19,12 +19,14 @@ export const requestListFailed = () => ({
   type: REQUEST_LIST_FAILED,
 });
 
-export const searchListStart = () => ({
+export const searchListStart = payload => ({
   type: SEARCH_LIST_START,
+  payload: payload,
 });
 
 export const searchListSuccess = () => ({
   type: SEARCH_LIST_SUCCESS,
+  payload: data,
 });
 
 export const searchListFailed = () => ({

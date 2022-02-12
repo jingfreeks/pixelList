@@ -10,7 +10,7 @@ const HomeScreen = ({navigation}) => {
           <StyledText>Pixel List Screen </StyledText>
         </TouchableOpacity>
       </StyledTextContainer>
-      <Lists />
+      <Lists navigation={navigation} />
     </StyleContainer>
   );
 };

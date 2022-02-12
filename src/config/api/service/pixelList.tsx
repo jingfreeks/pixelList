@@ -5,7 +5,10 @@ const pixelList = {
       response => response.json(),
     );
   },
-  search: text =>
-    fetch(`${baseUrl}?key=25632604-bd334999637f9d384589445f9&q=${text}`),
+  search: text => {
+    return fetch(
+      `${baseUrl}?key=25632604-bd334999637f9d384589445f9&q=${text}`,
+    ).then(response => response.json());
+  },
 };
 export default pixelList;

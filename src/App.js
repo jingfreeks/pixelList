@@ -9,7 +9,7 @@
 import React from 'react';
 import type {Node} from 'react';
 
-import RootNavigation from './navigation/root';
+import RootNavigation from './Navigation/Root';
 import {Provider} from 'react-redux';
 import store from 'src/redux/store';
 const App: () => Node = () => {
